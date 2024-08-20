@@ -1,0 +1,71 @@
+:root {
+  --bg-primary: #f4f9f9;
+  --bg-primary-hover: #dcdcdc;
+  --bg-primary-active: #c4c4c4;
+
+  --bg-secondary: #0f0f0f;
+  --bg-secondary-hover: #212121;
+  --bg-secondary-active: #404040;
+
+  --clr-primary: #4ea8de;
+  --clr-primary-hover: #3592cc;
+  --clr-primary-active: #7da5be;
+
+  --clr-success: #29bf12;
+  --clr-success-hover: #1d9e09;
+  --clr-success-active: #7db474;
+
+  --clr-warning: #faa307;
+  --clr-warning-hover: #cd8601;
+  --clr-warning-active: #d1b176;
+
+  --clr-danger: #d00000;
+  --clr-danger-hover: #a50303;
+  --clr-danger-active: #a46e6e;
+
+  --text-primary: #0f0f0f;
+  --text-primary-hover: #313131;
+  --text-primary-active: #777777;
+
+  --text-secondary: #f4f9f9;
+  --text-secondary-hover: #dcdcdc;
+  --text-secondary-active: #7a7a7a;
+}
+
+[data-theme="dark"] {
+  --bg-primary: radial-gradient(
+    circle at 10% 20%,
+    rgb(0, 0, 0) 0%,
+    rgb(1, 16, 25) 90.2%
+  );
+  --bg-primary-hover: #212121;
+  --bg-primary-active: #404040;
+
+  --bg-secondary: #f4f9f9;
+  --bg-secondary-hover: #dcdcdc;
+  --bg-secondary-active: #c4c4c4;
+
+  --clr-primary: #4ea8de;
+  --clr-primary-hover: #3592cc;
+  --clr-primary-active: #7da5be;
+
+  --clr-success: #70e000;
+  --clr-success-hover: #5fbf00;
+  --clr-success-active: #8bb85f;
+
+  --clr-warning: #faa307;
+  --clr-warning-hover: #cd8601;
+  --clr-warning-active: #d1b176;
+
+  --clr-danger: #f73232;
+  --clr-danger-hover: #a70000;
+  --clr-danger-active: #a46e6e;
+
+  --text-primary: #f4f9f9;
+  --text-primary-hover: #dcdcdc;
+  --text-primary-active: #7a7a7a;
+
+  --text-secondary: #0f0f0f;
+  --text-secondary-hover: #313131;
+  --text-secondary-active: #777777;
+}
