@@ -1,3 +1,5 @@
+@import "../../styles/index.scss";
+
 .header {
   display: flex;
   align-items: center;
@@ -37,19 +39,7 @@
         }
 
         &[data-title]:hover::after {
-          content: attr(data-title);
-          position: absolute;
-          top: 110%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 14px;
-          color: white;
-          background: var(--bg-secondary);
-          color: var(--text-secondary);
-          padding: 10px 20px;
-          border-radius: 10px;
-          box-shadow: 0 0 2px black;
+          @include title(attr(data-title));
         }
 
         .icon {
@@ -81,13 +71,27 @@
       margin: 0 40px;
     }
 
-    .searchWrapper {
-    }
-
     .toggleBtns {
+      display: flex;
+      align-items: center;
     }
 
     .auth {
+      .loggedOut {
+        width: 70px;
+        text-align: center;
+
+        span {
+          text-decoration: underline;
+          color: var(--text-primary);
+          cursor: pointer;
+          transition: all 0.1s ease-in-out;
+
+          &:hover {
+            color: var(--clr-primary);
+          }
+        }
+      }
     }
   }
 }

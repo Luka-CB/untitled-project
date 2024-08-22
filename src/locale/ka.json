@@ -1,0 +1,13 @@
+{
+  "translation": {
+    "header": {
+      "navItems": ["მთავარი", "ჩვენს შესახებ", "კონტაქტი"],
+      "search": {
+        "placeholder": "მოძებნე რაც გინდა"
+      },
+      "auth": {
+        "loggedOut": "შესვლა"
+      }
+    }
+  }
+}

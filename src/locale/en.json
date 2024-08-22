@@ -1,0 +1,13 @@
+{
+  "translation": {
+    "header": {
+      "navItems": ["Home", "About Us", "Contact"],
+      "search": {
+        "placeholder": "search anything"
+      },
+      "auth": {
+        "loggedOut": "Sign In"
+      }
+    }
+  }
+}

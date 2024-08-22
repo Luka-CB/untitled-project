@@ -1,5 +1,6 @@
 :root {
   --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-primary-clr: #f5f7fa;
   --bg-primary-fade-out: rgba(255, 255, 255, 0.071);
 
   --bg-secondary: radial-gradient(
@@ -7,6 +8,7 @@
     rgb(0, 0, 0) 0%,
     rgb(1, 16, 25) 90.2%
   );
+  --bg-secondary-clr: rgb(44, 44, 44);
   --bg-secondary-fade-out: rgba(0, 0, 0, 0.098);
 
   --clr-primary: #4ea8de;
@@ -46,9 +48,11 @@
     rgb(0, 0, 0) 0%,
     rgb(1, 16, 25) 90.2%
   );
+  --bg-primary-clr: rgb(44, 44, 44);
   --bg-primary-fade-out: rgba(0, 0, 0, 0.098);
 
   --bg-secondary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-secondary-clr: #f5f7fa;
   --bg-secondary-fade-out: rgba(255, 255, 255, 0.071);
 
   --clr-primary: #4ea8de;
