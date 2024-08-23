@@ -1,0 +1,97 @@
+@import "../../styles/index.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(60, 60, 60, 0.4);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(60, 60, 60, 0.4);
+  box-shadow: 0px 2px 4px 0px rgba(60, 60, 60, 0.4);
+
+  .col1 {
+    display: inherit;
+    align-items: center;
+
+    .logo {
+      font-size: 1.3rem;
+      color: var(--text-primary);
+    }
+
+    nav {
+      display: inherit;
+      align-items: center;
+      margin-left: 100px;
+
+      .link {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.1s ease-in-out;
+
+        &:not(:first-child) {
+          margin-left: 50px;
+        }
+
+        &[data-title]:hover::after {
+          @include title(attr(data-title));
+        }
+
+        .icon {
+          font-size: 1.7rem;
+          color: var(--text-primary);
+          transition: all 0.1s ease-in-out;
+        }
+
+        &:hover {
+          background-color: var(--clr-primary-fade-out);
+
+          .icon {
+            font-size: 2.2rem;
+            color: var(--clr-primary);
+          }
+        }
+      }
+    }
+  }
+
+  .col2 {
+    display: inherit;
+    align-items: center;
+
+    .divider {
+      width: 1px;
+      height: 30px;
+      background-color: var(--text-primary-fade-out);
+      margin: 0 40px;
+    }
+
+    .toggleBtns {
+      display: flex;
+      align-items: center;
+    }
+
+    .auth {
+      .loggedOut {
+        width: 70px;
+        text-align: center;
+
+        span {
+          text-decoration: underline;
+          color: var(--text-primary);
+          cursor: pointer;
+          transition: all 0.1s ease-in-out;
+
+          &:hover {
+            color: var(--clr-primary);
+          }
+        }
+      }
+    }
+  }
+}

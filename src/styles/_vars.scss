@@ -1,35 +1,45 @@
 :root {
-  --bg-primary: #f4f9f9;
-  --bg-primary-hover: #dcdcdc;
-  --bg-primary-active: #c4c4c4;
+  --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-primary-clr: #f5f7fa;
+  --bg-primary-fade-out: rgba(255, 255, 255, 0.071);
 
-  --bg-secondary: #0f0f0f;
-  --bg-secondary-hover: #212121;
-  --bg-secondary-active: #404040;
+  --bg-secondary: radial-gradient(
+    circle at 10% 20%,
+    rgb(0, 0, 0) 0%,
+    rgb(1, 16, 25) 90.2%
+  );
+  --bg-secondary-clr: rgb(44, 44, 44);
+  --bg-secondary-fade-out: rgba(0, 0, 0, 0.098);
 
   --clr-primary: #4ea8de;
   --clr-primary-hover: #3592cc;
   --clr-primary-active: #7da5be;
+  --clr-primary-fade-out: #4ea7de18;
 
   --clr-success: #29bf12;
   --clr-success-hover: #1d9e09;
   --clr-success-active: #7db474;
+  --clr-success-fade-out: #29bf1217;
 
   --clr-warning: #faa307;
   --clr-warning-hover: #cd8601;
   --clr-warning-active: #d1b176;
+  --clr-warning-fade-out: #faa5071d;
 
   --clr-danger: #d00000;
   --clr-danger-hover: #a50303;
   --clr-danger-active: #a46e6e;
+  --clr-danger-fade-out: #d000001d;
 
   --text-primary: #0f0f0f;
   --text-primary-hover: #313131;
   --text-primary-active: #777777;
+  --text-primary-fade-out: #0f0f0f1e;
 
   --text-secondary: #f4f9f9;
   --text-secondary-hover: #dcdcdc;
   --text-secondary-active: #7a7a7a;
+  --text-secondary-fade-out: #f4f9f91c;
 }
 
 [data-theme="dark"] {
@@ -38,34 +48,40 @@
     rgb(0, 0, 0) 0%,
     rgb(1, 16, 25) 90.2%
   );
-  --bg-primary-hover: #212121;
-  --bg-primary-active: #404040;
+  --bg-primary-clr: rgb(44, 44, 44);
+  --bg-primary-fade-out: rgba(0, 0, 0, 0.098);
 
-  --bg-secondary: #f4f9f9;
-  --bg-secondary-hover: #dcdcdc;
-  --bg-secondary-active: #c4c4c4;
+  --bg-secondary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-secondary-clr: #f5f7fa;
+  --bg-secondary-fade-out: rgba(255, 255, 255, 0.071);
 
   --clr-primary: #4ea8de;
   --clr-primary-hover: #3592cc;
   --clr-primary-active: #7da5be;
+  --clr-primary-fade-out: #4ea7de18;
 
   --clr-success: #70e000;
   --clr-success-hover: #5fbf00;
   --clr-success-active: #8bb85f;
+  --clr-success-fade-out: #29bf1217;
 
   --clr-warning: #faa307;
   --clr-warning-hover: #cd8601;
   --clr-warning-active: #d1b176;
+  --clr-warning-fade-out: #faa5071d;
 
   --clr-danger: #f73232;
   --clr-danger-hover: #a70000;
   --clr-danger-active: #a46e6e;
+  --clr-danger-fade-out: #d000001d;
 
   --text-primary: #f4f9f9;
   --text-primary-hover: #dcdcdc;
   --text-primary-active: #7a7a7a;
+  --text-primary-fade-out: #f4f9f91c;
 
   --text-secondary: #0f0f0f;
   --text-secondary-hover: #313131;
   --text-secondary-active: #777777;
+  --text-secondary-fade-out: #0f0f0f1e;
 }
