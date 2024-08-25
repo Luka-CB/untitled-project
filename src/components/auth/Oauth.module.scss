@@ -1,0 +1,43 @@
+.oauth {
+  display: flex;
+  align-items: center;
+
+  .google,
+  .facebook {
+    width: 220px;
+    height: 40px;
+    border: 1.5px solid var(--text-primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    .googleIcon {
+      font-size: 28px;
+      margin-right: 13px;
+    }
+
+    .fbIcon {
+      font-size: 24px;
+      margin-right: 13px;
+      color: rgb(4, 123, 214);
+    }
+
+    span {
+      font-size: 12px;
+      color: var(--text-primary);
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+      border-color: var(--text-primary-active);
+      background-color: var(--clr-primary-fade-out);
+    }
+  }
+
+  .facebook {
+    margin-left: 24px;
+  }
+}

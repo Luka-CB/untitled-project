@@ -14,3 +14,20 @@
   border-radius: 10px;
   box-shadow: 0 0 2px black;
 }
+
+@mixin input() {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: inherit;
+  transition: all 0.1s ease-in-out;
+}
+
+@mixin btn() {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.1s ease-in-out;
+}

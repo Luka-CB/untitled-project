@@ -5,9 +5,14 @@ import styles from "./Hearder.module.scss";
 import Search from "./Search";
 import { CiHome, CiSquareInfo } from "react-icons/ci";
 import { GrContactInfo } from "react-icons/gr";
+import { Link, useLocation } from "react-router-dom";
+
+const routesToExcludeAuth = ["/signin", "/signup"];
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
+
+  const { pathname } = useLocation();
 
   return (
     <header className={styles.header}>
@@ -32,12 +37,18 @@ const Header: React.FC = () => {
           <DarkLightBtn />
           <LangBtn />
         </div>
-        <div className={styles.divider}></div>
-        <div className={styles.auth}>
-          <div className={styles.loggedOut}>
-            <span>{t("header.auth.loggedOut")}</span>
-          </div>
-        </div>
+        {!routesToExcludeAuth.includes(pathname) ? (
+          <>
+            <div className={styles.divider}></div>
+            <div className={styles.auth}>
+              <div className={styles.loggedOut}>
+                <Link to={{ pathname: "/signin" }}>
+                  {t("header.auth.loggedOut")}
+                </Link>
+              </div>
+            </div>
+          </>
+        ) : null}
       </div>
     </header>
   );
