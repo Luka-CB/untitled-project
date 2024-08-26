@@ -19,8 +19,27 @@
             "btn": "Sign In"
           },
           "note": {
-            "text": "Already have an account?",
+            "text": "Don't have an account yet?",
             "link": "Sign Up"
+          }
+        },
+        "signup": {
+          "info": {
+            "title": "Welcome!",
+            "description": "Sign Up Now to start your journey with us. Create your account and unlock access to exclusive features! With just a few simple steps, you can become a member of our thriving community."
+          },
+          "or": "or",
+          "form": {
+            "firstName": "Your first name",
+            "lastName": "Your last name",
+            "email": "Enter your email",
+            "password": "Enter new password",
+            "confirmPassword": "Retype password",
+            "btn": "Sign Up"
+          },
+          "note": {
+            "text": "Already have an account?",
+            "link": "Sign In"
           }
         },
         "oauth": {

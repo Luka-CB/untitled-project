@@ -1,0 +1,90 @@
+.regTypeSelect {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  margin: 10px 20px 0 0;
+
+  label {
+    font-size: medium;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .selectInput {
+    width: 150px;
+    border: 1.5px solid var(--text-primary-active);
+    margin-left: 10px;
+    height: 35px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    transition: all 0.1s ease-in-out;
+
+    span {
+      color: var(--text-primary);
+      font-size: small;
+      text-transform: capitalize;
+    }
+
+    .chevronDown {
+      color: var(--text-primary-active);
+      font-size: 1.3rem;
+      transition: all 0.1s ease-in-out;
+    }
+
+    &:hover {
+      border-color: var(--text-primary);
+
+      .chevronDown {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  .options {
+    position: absolute;
+    background-color: var(--bg-primary-clr);
+    top: 100%;
+    width: 150px;
+    right: 0;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.159);
+
+    .option,
+    .optionActive {
+      color: var(--text-primary-active);
+      padding: 10px;
+      text-transform: capitalize;
+      transition: all 0.1s ease-in-out;
+      cursor: pointer;
+
+      &:first-child {
+        border-bottom: 1px solid var(--text-primary-fade-out);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      &:hover {
+        background-color: var(--bg-secondary-fade-out);
+        color: var(--text-primary);
+      }
+    }
+
+    .optionActive {
+      background-color: var(--bg-secondary-fade-out);
+      color: var(--text-primary);
+    }
+  }
+}

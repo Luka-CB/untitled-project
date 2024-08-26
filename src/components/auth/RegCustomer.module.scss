@@ -1,0 +1,67 @@
+@import "../../styles/index.scss";
+
+.or {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .leftLine,
+  .rightLine {
+    width: calc((500px - 40px) / 2);
+    height: 1px;
+    background-color: var(--text-primary-active);
+  }
+
+  span {
+    font-size: large;
+    text-transform: uppercase;
+    color: var(--text-primary-active);
+  }
+}
+
+form {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .input {
+    @include input();
+    border: 1.5px solid var(--text-primary);
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+    color: var(--text-primary);
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    &:focus {
+      background-color: var(--bg-secondary-clr);
+      color: var(--text-secondary);
+    }
+  }
+
+  button {
+    @include btn();
+    margin-top: 20px;
+    background-color: var(--clr-primary);
+    height: 40px;
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: large;
+
+    &:hover {
+      background-color: var(--clr-primary-hover);
+      color: rgb(255, 255, 255);
+    }
+
+    &:active {
+      background-color: var(--clr-primary-active);
+      color: rgba(255, 255, 255, 0.292);
+      scale: 0.97;
+    }
+  }
+}
