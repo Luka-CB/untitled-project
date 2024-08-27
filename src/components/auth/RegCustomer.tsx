@@ -41,7 +41,9 @@ const RegCustomer: React.FC = () => {
           type="password"
           placeholder={t("header.auth.signup.form.confirmPassword")}
         />
-        <button>{t("header.auth.signup.form.btn")}</button>
+        <button className={styles.submitBtn}>
+          {t("header.auth.signup.form.btn")}
+        </button>
       </form>
     </>
   );

@@ -8,20 +8,30 @@ interface contextIFace {
   isOptionsOpen: boolean;
   setIsOptionsOpen: any;
   pickedOption: string;
-  setPickedOption: any;
+  handlePickOption: (value: string) => void;
 }
 
 export const RegSelectContext = createContext({} as contextIFace);
 
 const RegSelectProvider = ({ children }: childrenIFace) => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const [pickedOption, setPickedOption] = useState("customer");
+  const [pickedOption, setPickedOption] = useState(
+    localStorage.getItem("regOption")
+      ? JSON.parse(localStorage.getItem("regOption") || "")
+      : "customer"
+  );
+
+  const handlePickOption = (value: string) => {
+    setPickedOption(value);
+    localStorage.setItem("regOption", JSON.stringify(value));
+    setIsOptionsOpen(false);
+  };
 
   const values = {
     isOptionsOpen,
     setIsOptionsOpen,
     pickedOption,
-    setPickedOption,
+    handlePickOption,
   };
 
   return (

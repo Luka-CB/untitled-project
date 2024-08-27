@@ -5,6 +5,7 @@ import { RegBusiness, RegCustomer, RegSelect } from "../../components";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { RegSelectContext } from "../../context/regSelectContext";
+import { IoIosWarning } from "react-icons/io";
 
 const Signup: React.FC = () => {
   const { pickedOption } = useContext(RegSelectContext);
@@ -25,6 +26,12 @@ const Signup: React.FC = () => {
         </div>
         <div className={styles.col2}>
           <div className={styles.content}>
+            <div className={styles.msg}>
+              <IoIosWarning className={styles.warningIcon} />
+              <p>
+                <b>*</b> - indicates required field!
+              </p>
+            </div>
             <RegSelect />
             {pickedOption === "customer" ? <RegCustomer /> : <RegBusiness />}
             <div className={styles.note}>

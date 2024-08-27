@@ -5,13 +5,8 @@ import { RegSelectContext } from "../../context/regSelectContext";
 import { AnimatePresence, motion } from "framer-motion";
 
 const RegSelect: React.FC = () => {
-  const { isOptionsOpen, setIsOptionsOpen, setPickedOption, pickedOption } =
+  const { isOptionsOpen, setIsOptionsOpen, handlePickOption, pickedOption } =
     useContext(RegSelectContext);
-
-  const handlePickOption = (value: string) => {
-    setPickedOption(value);
-    setIsOptionsOpen(false);
-  };
 
   console.log(pickedOption);
 
