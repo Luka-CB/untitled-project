@@ -4,15 +4,18 @@ import { useAppSelector } from "../../redux/store";
 import Header from "../header/Header";
 import { useContext } from "react";
 import { RegSelectContext } from "../../context/regSelectContext";
+import { SelectTypeContext } from "../../context/selectTypeContext";
 
 const Layout: React.FC = () => {
   const { isOptionsOpen, setIsOptionsOpen } = useContext(RegSelectContext);
+  const { toggleDropdown, setToggleDropdown } = useContext(SelectTypeContext);
 
   const isDark = useAppSelector((state) => state.theme.isDark);
 
   const handleClosePopups = () => {
-    if (isOptionsOpen) {
+    if (isOptionsOpen || toggleDropdown) {
       setIsOptionsOpen(false);
+      setToggleDropdown(false);
     }
   };
 

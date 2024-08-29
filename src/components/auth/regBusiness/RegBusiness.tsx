@@ -4,16 +4,27 @@ import FormOne from "./forms/FormOne";
 import FormTwo from "./forms/FormTwo";
 
 const RegBusiness: React.FC = () => {
-  const [pageCount, setPageCount] = useState(1);
+  const [pageCount, setPageCount] = useState(
+    localStorage.getItem("regBusinessPageCount")
+      ? JSON.parse(localStorage.getItem("regBusinessPageCount") || "")
+      : 1
+  );
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setPageCount(2);
+    if (pageCount < 2) {
+      setPageCount(2);
+      localStorage.setItem("regBusinessPageCount", JSON.stringify(2));
+      return;
+    }
+
+    console.log("submit data");
   };
 
   const handleBackBtn = () => {
     setPageCount(1);
+    localStorage.setItem("regBusinessPageCount", JSON.stringify(1));
   };
 
   return (

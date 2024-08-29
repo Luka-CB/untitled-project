@@ -8,6 +8,7 @@ interface regDataIFace {
   firstName: string;
   lastName: string;
   email: string;
+  phoneNumber: number;
   password: string;
   confirmPassword: string;
   companyName: string;
@@ -24,6 +25,7 @@ const initialData = {
   firstName: "",
   lastName: "",
   email: "",
+  phoneNumber: 0,
   password: "",
   confirmPassword: "",
   companyName: "",

@@ -1,8 +1,15 @@
 import { ChangeEvent, useContext } from "react";
 import { RegBusinessContext } from "../../../../context/regBusinessContext";
-import styles from "./FormOne.module.scss";
+import styles from "./FormTwo.module.scss";
+import { FaCircleInfo } from "react-icons/fa6";
+import InfoPopup from "../../../infoPopup/InfoPopup";
+import { InfoPopupContext } from "../../../../context/infoPopupContext";
+import { AnimatePresence } from "framer-motion";
+import SelectType from "./selectType/SelectType";
 
 const FormTwo: React.FC = () => {
+  const { togglePopup, setTogglePopup } = useContext(InfoPopupContext);
+
   //   const { regBusinessData, setRegBusinessData } =
   //     useContext(RegBusinessContext);
 
@@ -19,66 +26,108 @@ const FormTwo: React.FC = () => {
 
   return (
     <>
-      <div className={styles.row1}>
-        <input
-          type="text"
-          placeholder="Enter first name *"
-          name="firstName"
-          //   onChange={handleInputChange}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Enter last name *"
-          name="lastName"
-          //   onChange={handleInputChange}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Enter email *"
-          name="email"
-          //   onChange={handleInputChange}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter password *"
-          name="password"
-          //   onChange={handleInputChange}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Retype password *"
-          name="confirmPassword"
-          //   onChange={handleInputChange}
-          required
-        />
+      <DividerTitle title="address" />
+      <div className={styles.address}>
+        <div className={styles.row1}>
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="city"
+            placeholder="City/Town"
+          />
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="village"
+            placeholder="Village"
+          />
+        </div>
+        <div className={styles.row2}>
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="preciseAddress"
+            placeholder="Precise address e.g. street, avenue etc."
+          />
+        </div>
+        <div className={styles.row3}>
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="lat"
+            placeholder="Latitude"
+          />
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="long"
+            placeholder="Longitude"
+          />
+          <div className={styles.info}>
+            <FaCircleInfo
+              className={styles.infoIcon}
+              onMouseEnter={() => setTogglePopup(true)}
+              onMouseLeave={() => setTogglePopup(false)}
+            />
+            <AnimatePresence>
+              {togglePopup ? (
+                <InfoPopup info="Latitude and longitude are needed to show your company or business on the map, it's optional and you can always add them later." />
+              ) : null}
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
-      <hr />
-      <div className={styles.row2}>
-        <input
-          type="text"
-          placeholder="Company/Business name *"
-          name="companyName"
-          //   onChange={handleInputChange}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Date of establishment"
-          name="est"
-          //   onChange={handleInputChange}
-        />
-        <textarea
-          placeholder="Tell people little more about your company/business"
-          name="description"
-          //   onChange={handleInputChange}
-        ></textarea>
+      <DividerTitle title="links" />
+      <div className={styles.links}>
+        <div className={styles.row1}>
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="website"
+            placeholder="Website url"
+          />
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="youtube"
+            placeholder="Youtube url"
+          />
+        </div>
+        <div className={styles.row2}>
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="facebook"
+            placeholder="Facebook url"
+          />
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="instagram"
+            placeholder="Instagram url"
+          />
+          <input
+            className={styles.formTwoInput}
+            type="text"
+            name="tiktok"
+            placeholder="Tiktok url"
+          />
+        </div>
       </div>
+      <DividerTitle title="type" />
+      <SelectType />
     </>
   );
 };
 
 export default FormTwo;
+
+const DividerTitle: React.FC<{ title: string }> = ({ title }) => {
+  return (
+    <div className={styles.dividerTitle}>
+      <div className={styles.line}></div>
+      <span>{title}</span>
+      <div className={styles.line}></div>
+    </div>
+  );
+};

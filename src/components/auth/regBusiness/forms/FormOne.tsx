@@ -21,6 +21,7 @@ const FormOne: React.FC = () => {
     <>
       <div className={styles.row1}>
         <input
+          className={styles.formOneInput}
           type="text"
           placeholder="Enter first name *"
           name="firstName"
@@ -29,6 +30,7 @@ const FormOne: React.FC = () => {
           required
         />
         <input
+          className={styles.formOneInput}
           type="text"
           placeholder="Enter last name *"
           name="lastName"
@@ -36,15 +38,27 @@ const FormOne: React.FC = () => {
           onChange={handleInputChange}
           required
         />
+        <div className={styles.contactInputs}>
+          <input
+            className={styles.formOneInput}
+            type="email"
+            placeholder="Enter email *"
+            name="email"
+            value={regBusinessData.email}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            className={styles.formOneInput}
+            type="number"
+            placeholder="Enter phone number"
+            name="phoneNumber"
+            value={regBusinessData.phoneNumber}
+            onChange={handleInputChange}
+          />
+        </div>
         <input
-          type="email"
-          placeholder="Enter email *"
-          name="email"
-          value={regBusinessData.email}
-          onChange={handleInputChange}
-          required
-        />
-        <input
+          className={styles.formOneInput}
           type="password"
           placeholder="Enter password *"
           name="password"
@@ -52,6 +66,7 @@ const FormOne: React.FC = () => {
           required
         />
         <input
+          className={styles.formOneInput}
           type="password"
           placeholder="Retype password *"
           name="confirmPassword"
@@ -62,6 +77,7 @@ const FormOne: React.FC = () => {
       <hr />
       <div className={styles.row2}>
         <input
+          className={styles.formOneInput}
           type="text"
           placeholder="Company/Business name *"
           name="companyName"
@@ -70,6 +86,7 @@ const FormOne: React.FC = () => {
           required
         />
         <input
+          className={styles.formOneInput}
           type="number"
           placeholder="Date of establishment"
           name="est"

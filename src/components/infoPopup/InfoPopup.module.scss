@@ -1,0 +1,45 @@
+.container,
+.containerPositionTopRight,
+.containerPositionTopLeft,
+.containerPositionBottomRight,
+.containerPositionBottomLeft {
+  position: absolute;
+  margin-bottom: 5px;
+  background-color: var(--bg-secondary-clr);
+  text-wrap: nowrap;
+  width: 200px;
+  height: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.386);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    color: var(--text-secondary);
+    text-wrap: wrap;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+.containerPositionTopRight {
+  bottom: 100%;
+  left: 100%;
+}
+
+.containerPositionTopLeft {
+  right: 100%;
+  bottom: 100%;
+}
+
+.containerPositionBottomRight {
+  top: 100%;
+  left: 100%;
+}
+
+.containerPositionBottomLeft {
+  top: 100%;
+  right: 100%;
+}

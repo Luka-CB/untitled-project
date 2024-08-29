@@ -4,15 +4,17 @@ import { GoChevronDown } from "react-icons/go";
 import { RegSelectContext } from "../../context/regSelectContext";
 import { AnimatePresence, motion } from "framer-motion";
 
-const RegSelect: React.FC = () => {
+interface propsIFace {
+  title: string;
+}
+
+const RegSelect: React.FC<propsIFace> = ({ title }) => {
   const { isOptionsOpen, setIsOptionsOpen, handlePickOption, pickedOption } =
     useContext(RegSelectContext);
 
-  console.log(pickedOption);
-
   return (
     <div className={styles.regTypeSelect}>
-      <label>Register as:</label>
+      <label>{title}:</label>
       <div
         className={styles.selectInput}
         onClick={() => setIsOptionsOpen(!isOptionsOpen)}

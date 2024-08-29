@@ -1,11 +1,15 @@
 import { useTranslation } from "react-i18next";
 import styles from "./Signin.module.scss";
 import loginImg from "../../assets/imgs/login.png";
-import { Oauth } from "../../components";
+import { Oauth, RegSelect } from "../../components";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { RegSelectContext } from "../../context/regSelectContext";
 
 const Signin: React.FC = () => {
   const { t } = useTranslation();
+
+  const { pickedOption } = useContext(RegSelectContext);
 
   return (
     <main className={styles.container}>
@@ -21,12 +25,17 @@ const Signin: React.FC = () => {
         </div>
         <div className={styles.col2}>
           <div className={styles.content}>
-            <Oauth />
-            <div className={styles.or}>
-              <div className={styles.leftLine}></div>
-              <span>{t("header.auth.signin.or")}</span>
-              <div className={styles.rightLine}></div>
-            </div>
+            <RegSelect title="Sign in as" />
+            {pickedOption === "customer" ? (
+              <>
+                <Oauth />
+                <div className={styles.or}>
+                  <div className={styles.leftLine}></div>
+                  <span>{t("header.auth.signin.or")}</span>
+                  <div className={styles.rightLine}></div>
+                </div>
+              </>
+            ) : null}
             <form>
               <input
                 type="email"

@@ -30,11 +30,11 @@
           },
           "or": "or",
           "form": {
-            "firstName": "Your first name",
-            "lastName": "Your last name",
-            "email": "Enter your email",
-            "password": "Enter new password",
-            "confirmPassword": "Retype password",
+            "firstName": "Your first name *",
+            "lastName": "Your last name *",
+            "email": "Enter your email *",
+            "password": "Enter new password *",
+            "confirmPassword": "Retype password *",
             "btn": "Sign Up"
           },
           "note": {

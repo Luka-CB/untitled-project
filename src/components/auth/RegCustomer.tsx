@@ -34,7 +34,7 @@ const RegCustomer: React.FC = () => {
         <input
           className={styles.input}
           type="password"
-          placeholder={t("header.auth.signin.form.password")}
+          placeholder={t("header.auth.signup.form.password")}
         />
         <input
           className={styles.input}

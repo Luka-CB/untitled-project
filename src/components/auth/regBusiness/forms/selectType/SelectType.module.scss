@@ -1,0 +1,88 @@
+.type {
+  margin-top: 10px;
+  width: 100%;
+  position: relative;
+
+  .select,
+  .selectActive {
+    width: 100%;
+    height: 40px;
+    border: 1.5px solid var(--text-primary-active);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    transition: all 0.2s ease-in-out;
+
+    span {
+      font-size: small;
+      color: var(--text-primary-active);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .chevronDown {
+      color: var(--text-primary-active);
+      font-size: 1.2rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+      border-color: var(--text-primary);
+
+      span {
+        color: var(--text-primary);
+      }
+
+      .chevronDown {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  .selectActive {
+    border-color: var(--text-primary);
+
+    span {
+      color: var(--text-primary);
+    }
+  }
+
+  .options {
+    background-color: var(--bg-primary-clr);
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    overflow-y: scroll;
+    height: 300px;
+    margin-top: 5px;
+    border-radius: 10px;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.333);
+
+    dl {
+      width: 100%;
+
+      dt {
+        color: var(--text-primary);
+        font-weight: bold;
+        font-size: large;
+        padding: 10px 0 0 20px;
+        font-style: italic;
+      }
+
+      dd {
+        color: var(--text-primary);
+        text-indent: 50px;
+        font-size: small;
+        padding: 6px;
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--text-primary-fade-out);
+        }
+      }
+    }
+  }
+}

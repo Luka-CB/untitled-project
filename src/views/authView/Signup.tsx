@@ -32,7 +32,7 @@ const Signup: React.FC = () => {
                 <b>*</b> - indicates required field!
               </p>
             </div>
-            <RegSelect />
+            <RegSelect title="Register as" />
             {pickedOption === "customer" ? <RegCustomer /> : <RegBusiness />}
             <div className={styles.note}>
               <h4>
