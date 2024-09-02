@@ -1,7 +1,14 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import styles from "./RegBusiness.module.scss";
 import FormOne from "./forms/FormOne";
 import FormTwo from "./forms/FormTwo";
+import FormThree from "./forms/FormThree";
+import { RegBusinessContext } from "../../../context/regBusinessContext";
+import { FlashMsgContext } from "../../../context/flashMsgContext";
+import { SelectTypeContext } from "../../../context/selectTypeContext";
+import { AddressInputsContext } from "../../../context/addressInputsContext";
+import { ProfileImageContext } from "../../../context/profileImageContext";
+import { TagsContext } from "../../../context/tagsContext";
 
 const RegBusiness: React.FC = () => {
   const [pageCount, setPageCount] = useState(
@@ -10,21 +17,51 @@ const RegBusiness: React.FC = () => {
       : 1
   );
 
+  const { regBusinessData } = useContext(RegBusinessContext);
+  const { addresses } = useContext(AddressInputsContext);
+  const { image } = useContext(ProfileImageContext);
+  const { tags } = useContext(TagsContext);
+  const { setSelectTypeError, pickedTypes } = useContext(SelectTypeContext);
+  const { setErrorMsg } = useContext(FlashMsgContext);
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (pageCount < 2) {
-      setPageCount(2);
-      localStorage.setItem("regBusinessPageCount", JSON.stringify(2));
+    if (regBusinessData.password?.length < 6) {
+      return setErrorMsg("Password must be at least 6 characters long!");
+    }
+
+    if (regBusinessData.password !== regBusinessData.confirmPassword) {
+      return setErrorMsg("Passwords don't match!");
+    }
+
+    if (pageCount < 3) {
+      setPageCount((prev: number) => prev + 1);
+      localStorage.setItem(
+        "regBusinessPageCount",
+        JSON.stringify(pageCount + 1)
+      );
       return;
     }
 
-    console.log("submit data");
+    if (!pickedTypes?.length) {
+      return setSelectTypeError(true);
+    }
+
+    const data = {
+      ...regBusinessData,
+      addresses,
+      image,
+      categories: pickedTypes,
+      tags,
+    };
+
+    console.log(data);
   };
 
   const handleBackBtn = () => {
-    setPageCount(1);
-    localStorage.setItem("regBusinessPageCount", JSON.stringify(1));
+    setPageCount((prev: number) => prev - 1);
+    localStorage.setItem("regBusinessPageCount", JSON.stringify(pageCount - 1));
   };
 
   return (
@@ -32,15 +69,22 @@ const RegBusiness: React.FC = () => {
       <div className={styles.indicators}>
         <div className={styles.indicator}></div>
         <div
-          className={
-            pageCount === 2 ? styles.indicatorActive : styles.indicator
-          }
+          className={pageCount > 1 ? styles.indicatorActive : styles.indicator}
+        ></div>
+        <div
+          className={pageCount > 2 ? styles.indicatorActive : styles.indicator}
         ></div>
       </div>
       <form onSubmit={handleSubmit}>
-        {pageCount === 1 ? <FormOne /> : <FormTwo />}
+        {pageCount === 1 ? (
+          <FormOne />
+        ) : pageCount === 2 ? (
+          <FormTwo />
+        ) : (
+          <FormThree />
+        )}
         <div className={styles.btns}>
-          {pageCount === 2 ? (
+          {pageCount > 1 ? (
             <button
               type="button"
               className={styles.backBtn}
@@ -50,7 +94,7 @@ const RegBusiness: React.FC = () => {
             </button>
           ) : null}
           <button type="submit" className={styles.submitBtn}>
-            {pageCount === 2 ? "Submit" : "Next"}
+            {pageCount === 3 ? "Submit" : "Next"}
           </button>
         </div>
       </form>

@@ -11,9 +11,17 @@ interface regDataIFace {
   phoneNumber: number;
   password: string;
   confirmPassword: string;
+  gender: string;
   companyName: string;
   est: number;
   description: string;
+  links: {
+    website: string;
+    youtube: string;
+    facebook: string;
+    instagram: string;
+    tiktok: string;
+  };
 }
 
 interface contextIFace {
@@ -28,9 +36,17 @@ const initialData = {
   phoneNumber: 0,
   password: "",
   confirmPassword: "",
+  gender: "",
   companyName: "",
   est: 0,
   description: "",
+  links: {
+    website: "",
+    youtube: "",
+    facebook: "",
+    instagram: "",
+    tiktok: "",
+  },
 };
 
 const dataFromStorage = localStorage.getItem("regBusinessData")

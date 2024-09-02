@@ -17,7 +17,7 @@ const ProfileImage: React.FC = () => {
   return (
     <div className={styles.container}>
       <label htmlFor="uploadImage">
-        <div className={styles.imageWrapper}>
+        <div className={styles.imageWrapper} data-title="Upload Profile Image">
           {image ? (
             <img src={image} alt="avatar" />
           ) : (

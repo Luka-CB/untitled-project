@@ -1,0 +1,104 @@
+@import "../../../../../styles/index.scss";
+
+.formTwoInput {
+  @include input();
+  border: 1.5px solid var(--text-primary-active);
+  height: 40px;
+  border-radius: 10px;
+  padding: 0 10px;
+  color: var(--text-primary);
+
+  &:focus {
+    background-color: var(--bg-secondary-clr);
+    color: var(--text-secondary);
+  }
+}
+
+.address {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.386);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1.5px solid var(--text-primary-active);
+  background: var(--bg-primary);
+
+  .row1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      width: 48%;
+    }
+  }
+
+  .row2 {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .row3 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .info {
+      position: relative;
+
+      .infoIcon {
+        font-size: 1.3rem;
+        color: var(--clr-primary);
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--clr-primary-hover);
+        }
+      }
+    }
+
+    .remove {
+      .closeIcon {
+        font-size: 1.4rem;
+        color: var(--clr-danger);
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--clr-danger-hover);
+        }
+      }
+    }
+
+    input {
+      width: 45%;
+    }
+  }
+}
+
+.addAddressBtn {
+  @include btn();
+  border: 1.5px solid var(--clr-primary);
+  width: 120px;
+  border-radius: 10px;
+  height: 30px;
+  color: var(--clr-primary);
+
+  &:hover {
+    border-color: var(--clr-primary-hover);
+    background-color: var(--clr-primary-fade-out);
+    color: var(--clr-primary-hover);
+  }
+}

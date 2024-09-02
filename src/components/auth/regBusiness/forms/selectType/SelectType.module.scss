@@ -1,10 +1,13 @@
+@import "../../../../../styles/index.scss";
+
 .type {
   margin-top: 10px;
   width: 100%;
   position: relative;
 
   .select,
-  .selectActive {
+  .selectActive,
+  .selectError {
     width: 100%;
     height: 40px;
     border: 1.5px solid var(--text-primary-active);
@@ -12,43 +15,108 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 10px;
+    padding-left: 10px;
     transition: all 0.2s ease-in-out;
 
-    span {
+    .pickedTypes {
+      display: flex;
+      align-items: center;
+      width: 93%;
+      height: 100%;
+
+      .pickedType {
+        background-color: var(--bg-primary-clr);
+        width: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 30px;
+        padding: 0 5px;
+        border-radius: 5px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.408);
+        cursor: default;
+
+        &[data-title]:hover::after {
+          @include title(attr(data-title));
+        }
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+
+        span {
+          font-size: 12px;
+          color: var(--text-primary);
+        }
+
+        .delIcon {
+          color: var(--clr-danger);
+          font-size: 1.1rem;
+          transition: all 0.1s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            color: var(--clr-danger-hover);
+          }
+        }
+      }
+    }
+
+    .placeholder {
+      width: 93%;
       font-size: small;
       color: var(--text-primary-active);
       transition: all 0.2s ease-in-out;
     }
 
-    .chevronDown {
-      color: var(--text-primary-active);
-      font-size: 1.2rem;
-      transition: all 0.2s ease-in-out;
+    .icon {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      .chevronDown {
+        color: var(--text-primary-active);
+        font-size: 1.2rem;
+        transition: all 0.2s ease-in-out;
+      }
     }
 
     &:hover {
       border-color: var(--text-primary);
 
-      span {
+      .placeholder {
         color: var(--text-primary);
       }
 
-      .chevronDown {
-        color: var(--text-primary);
+      .icon {
+        .chevronDown {
+          color: var(--text-primary);
+        }
       }
+    }
+  }
+
+  .selectError {
+    border-color: var(--clr-danger);
+
+    .placeholder {
+      color: var(--clr-danger);
     }
   }
 
   .selectActive {
     border-color: var(--text-primary);
 
-    span {
+    .placeholder {
       color: var(--text-primary);
     }
   }
 
-  .options {
+  .options,
+  .optionsDisabled {
     background-color: var(--bg-primary-clr);
     position: absolute;
     width: 100%;
@@ -81,6 +149,23 @@
 
         &:hover {
           background-color: var(--text-primary-fade-out);
+        }
+      }
+    }
+  }
+
+  .optionsDisabled {
+    dl {
+      dd {
+        color: var(--text-primary-active);
+        text-indent: 50px;
+        font-size: small;
+        padding: 6px;
+        transition: all 0.1s ease-in-out;
+        cursor: default;
+
+        &:hover {
+          background-color: transparent;
         }
       }
     }

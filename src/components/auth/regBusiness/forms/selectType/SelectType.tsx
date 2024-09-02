@@ -4,23 +4,61 @@ import { business_types } from "../../../../../data";
 import { useContext } from "react";
 import { SelectTypeContext } from "../../../../../context/selectTypeContext";
 import { AnimatePresence, motion } from "framer-motion";
+import { IoMdCloseCircle } from "react-icons/io";
 
 const SelectType: React.FC = () => {
-  const { toggleDropdown, setToggleDropdown, handlePickType, pickedType } =
-    useContext(SelectTypeContext);
+  const {
+    toggleDropdown,
+    setToggleDropdown,
+    handlePickType,
+    pickedTypes,
+    removePickedType,
+    selectTypeError,
+  } = useContext(SelectTypeContext);
 
   return (
     <div className={styles.type}>
       <div
-        className={pickedType?.typeId ? styles.selectActive : styles.select}
-        onClick={() => setToggleDropdown(!toggleDropdown)}
+        className={
+          selectTypeError
+            ? styles.selectError
+            : pickedTypes?.length
+            ? styles.selectActive
+            : styles.select
+        }
       >
-        <span>
-          {pickedType?.typeId
-            ? pickedType.type
-            : "Choose one of the options that best describes your business"}
-        </span>
-        <GoChevronDown className={styles.chevronDown} />
+        {pickedTypes?.length ? (
+          <div className={styles.pickedTypes}>
+            {pickedTypes?.map((type) => (
+              <div
+                className={styles.pickedType}
+                key={type.id}
+                data-title={type.type?.length > 16 ? type.type : undefined}
+              >
+                <span>
+                  {type.type?.length > 16
+                    ? `${type.type?.substring(0, 16)}...`
+                    : type.type}
+                </span>
+                <IoMdCloseCircle
+                  className={styles.delIcon}
+                  onClick={() => removePickedType(type.id)}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <span className={styles.placeholder}>
+            Choose up to three that best describes your business *
+          </span>
+        )}
+
+        <div
+          className={styles.icon}
+          onClick={() => setToggleDropdown(!toggleDropdown)}
+        >
+          <GoChevronDown className={styles.chevronDown} />
+        </div>
       </div>
       <AnimatePresence>
         {toggleDropdown ? (
@@ -42,7 +80,9 @@ const SelectType: React.FC = () => {
                 type: "spring",
               },
             }}
-            className={styles.options}
+            className={
+              pickedTypes?.length >= 3 ? styles.optionsDisabled : styles.options
+            }
             onClick={(e) => e.stopPropagation()}
           >
             <dl>
@@ -53,7 +93,7 @@ const SelectType: React.FC = () => {
                     <dd
                       key={subCat.id}
                       onClick={() =>
-                        handlePickType({ typeId: type.id, type: subCat.name })
+                        handlePickType({ id: subCat.id, type: subCat.name })
                       }
                     >
                       {subCat.name}
