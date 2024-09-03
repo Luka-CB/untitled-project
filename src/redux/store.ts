@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { TypedUseSelectorHook, useDispatch } from "react-redux";
 
-import themeReducer from "./slices/themeSlice";
+import themeSlice from "./slices/themeSlice";
+import fetchSessionUserSlice from "./slices/users/fetchSessionUserSlice";
 
 export const store = configureStore({
   reducer: {
-    theme: themeReducer,
+    theme: themeSlice,
+    sessionUser: fetchSessionUserSlice,
   },
 });
 

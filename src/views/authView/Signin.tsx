@@ -5,17 +5,21 @@ import { Oauth, RegSelect } from "../../components";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { RegSelectContext } from "../../context/regSelectContext";
+import { LanguageContext } from "../../context/languageContext";
 
 const Signin: React.FC = () => {
   const { t } = useTranslation();
 
   const { pickedOption } = useContext(RegSelectContext);
+  const { currentLanguage } = useContext(LanguageContext);
 
   return (
     <main className={styles.container}>
       <div className={styles.auth}>
         <div className={styles.col1}>
-          <div className={styles.info}>
+          <div
+            className={currentLanguage === "ka" ? styles.infoGeo : styles.info}
+          >
             <h1>{t("header.auth.signin.info.title")}</h1>
             <p>{t("header.auth.signin.info.description")}</p>
           </div>
