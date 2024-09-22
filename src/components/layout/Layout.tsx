@@ -8,12 +8,15 @@ import { SelectTypeContext } from "../../context/selectTypeContext";
 import ErrorMsg from "../flashMsgs/ErrorMsg";
 import { FlashMsgContext } from "../../context/flashMsgContext";
 import { AnimatePresence } from "framer-motion";
+import { UserOptionsContext } from "../../context/userOptionsContext";
 
 const routesToExcludeHeader = ["/redirect"];
 
 const Layout: React.FC = () => {
   const { isOptionsOpen, setIsOptionsOpen } = useContext(RegSelectContext);
   const { toggleDropdown, setToggleDropdown } = useContext(SelectTypeContext);
+  const { isUserOptionsOpen, toggleUserOptions } =
+    useContext(UserOptionsContext);
   const { errorMsg } = useContext(FlashMsgContext);
 
   const isDark = useAppSelector((state) => state.theme.isDark);
@@ -21,9 +24,10 @@ const Layout: React.FC = () => {
   const { pathname } = useLocation();
 
   const handleClosePopups = () => {
-    if (isOptionsOpen || toggleDropdown) {
+    if (isOptionsOpen || toggleDropdown || isUserOptionsOpen) {
       setIsOptionsOpen(false);
       setToggleDropdown(false);
+      toggleUserOptions(false);
     }
   };
 

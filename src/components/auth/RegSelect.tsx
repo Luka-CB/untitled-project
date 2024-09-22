@@ -3,18 +3,28 @@ import styles from "./RegSelect.module.scss";
 import { GoChevronDown } from "react-icons/go";
 import { RegSelectContext } from "../../context/regSelectContext";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../../context/languageContext";
 
 interface propsIFace {
-  title: string;
+  type: string;
 }
 
-const RegSelect: React.FC<propsIFace> = ({ title }) => {
+const RegSelect: React.FC<propsIFace> = ({ type }) => {
+  const { t } = useTranslation();
+
+  const { currentLanguage } = useContext(LanguageContext);
   const { isOptionsOpen, setIsOptionsOpen, handlePickOption, pickedOption } =
     useContext(RegSelectContext);
 
   return (
     <div className={styles.regTypeSelect}>
-      <label>{title}:</label>
+      <label>
+        {type === "login"
+          ? t("header.auth.regType.title.login")
+          : t("header.auth.regType.title.register")}
+        :
+      </label>
       <div
         className={styles.selectInput}
         onClick={() => setIsOptionsOpen(!isOptionsOpen)}
@@ -49,23 +59,31 @@ const RegSelect: React.FC<propsIFace> = ({ title }) => {
           >
             <span
               className={
-                pickedOption === "customer"
+                pickedOption === "customer" || pickedOption === "მომხმარებელი"
                   ? styles.optionActive
                   : styles.option
               }
-              onClick={() => handlePickOption("customer")}
+              onClick={() =>
+                handlePickOption(
+                  currentLanguage === "ka" ? "მომხმარებელი" : "customer"
+                )
+              }
             >
-              Customer
+              {t("header.auth.regType.options.0")}
             </span>
             <span
               className={
-                pickedOption === "business"
+                pickedOption === "business" || pickedOption === "ბიზნესი"
                   ? styles.optionActive
                   : styles.option
               }
-              onClick={() => handlePickOption("business")}
+              onClick={() =>
+                handlePickOption(
+                  currentLanguage === "ka" ? "ბიზნესი" : "business"
+                )
+              }
             >
-              Business
+              {t("header.auth.regType.options.1")}
             </span>
           </motion.div>
         ) : null}

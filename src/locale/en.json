@@ -7,6 +7,14 @@
       },
       "auth": {
         "loggedOut": "Sign In",
+        "regType": {
+          "title": {
+            "register": "Sign up as",
+            "login": "Sign in as"
+          },
+          "options": ["Customer", "Business"]
+        },
+        "hint": "indicates required field!",
         "signin": {
           "info": {
             "title": "Welcome Back!",
@@ -30,12 +38,33 @@
           },
           "or": "or",
           "form": {
-            "firstName": "Your first name *",
-            "lastName": "Your last name *",
-            "email": "Enter your email *",
-            "password": "Enter new password *",
-            "confirmPassword": "Retype password *",
-            "btn": "Sign Up"
+            "customer": {
+              "firstName": "Your first name *",
+              "lastName": "Your last name *",
+              "email": "Enter your email *",
+              "password": "Enter new password *",
+              "confirmPassword": "Retype password *",
+              "btn": "Sign Up"
+            },
+            "business": {
+              "firstName": "Enter first name *",
+              "lastName": "Enter last name *",
+              "email": "Enter email *",
+              "phoneNumber": {
+                "label": "Phone Number",
+                "placeholder": "Enter phone number"
+              },
+              "password": "Enter password *",
+              "confirmPassword": "Retype password *",
+              "warning": "Must be at least 6 characters long",
+              "gender": {
+                "label": "Choose Gender*:",
+                "options": ["male", "female"]
+              },
+              "companyName": "Company/Business name *",
+              "est": "Date of establishment",
+              "description": "Tell people little more about your company/business"
+            }
           },
           "note": {
             "text": "Already have an account?",

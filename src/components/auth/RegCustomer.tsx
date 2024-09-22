@@ -19,30 +19,35 @@ const RegCustomer: React.FC = () => {
         <input
           className={styles.input}
           type="text"
-          placeholder={t("header.auth.signup.form.firstName")}
+          placeholder={t("header.auth.signup.form.customer.firstName")}
+          required
         />
         <input
           className={styles.input}
           type="text"
-          placeholder={t("header.auth.signup.form.lastName")}
+          placeholder={t("header.auth.signup.form.customer.lastName")}
+          required
         />
         <input
           className={styles.input}
           type="email"
-          placeholder={t("header.auth.signup.form.email")}
+          placeholder={t("header.auth.signup.form.customer.email")}
+          required
         />
         <input
           className={styles.input}
           type="password"
-          placeholder={t("header.auth.signup.form.password")}
+          placeholder={t("header.auth.signup.form.customer.password")}
+          required
         />
         <input
           className={styles.input}
           type="password"
-          placeholder={t("header.auth.signup.form.confirmPassword")}
+          placeholder={t("header.auth.signup.form.customer.confirmPassword")}
+          required
         />
         <button className={styles.submitBtn}>
-          {t("header.auth.signup.form.btn")}
+          {t("header.auth.signup.form.customer.btn")}
         </button>
       </form>
     </>

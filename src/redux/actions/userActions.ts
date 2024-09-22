@@ -12,3 +12,12 @@ export const fetchSessionUser = createAsyncThunk(
     }
   }
 );
+
+export const logout = createAsyncThunk("LOGOUT", async (_, thunkAPI) => {
+  try {
+    const { data } = await api.get("/users/logout");
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+  }
+});

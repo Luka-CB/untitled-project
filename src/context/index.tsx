@@ -7,6 +7,7 @@ import RegBusinessProvider from "./regBusinessContext";
 import RegSelectProvider from "./regSelectContext";
 import SelectTypeProvider from "./selectTypeContext";
 import TagsProvider from "./tagsContext";
+import UserOptionsProvider from "./userOptionsContext";
 
 const ContextProvider = ({ children }: any) => {
   return (
@@ -18,7 +19,9 @@ const ContextProvider = ({ children }: any) => {
               <SelectTypeProvider>
                 <AddressInputsProvider>
                   <TagsProvider>
-                    <FlashMsgProvider>{children}</FlashMsgProvider>
+                    <FlashMsgProvider>
+                      <UserOptionsProvider>{children}</UserOptionsProvider>
+                    </FlashMsgProvider>
                   </TagsProvider>
                 </AddressInputsProvider>
               </SelectTypeProvider>

@@ -29,7 +29,7 @@ const Signin: React.FC = () => {
         </div>
         <div className={styles.col2}>
           <div className={styles.content}>
-            <RegSelect title="Sign in as" />
+            <RegSelect type="login" />
             {pickedOption === "customer" ? (
               <>
                 <Oauth />
@@ -44,10 +44,12 @@ const Signin: React.FC = () => {
               <input
                 type="email"
                 placeholder={t("header.auth.signin.form.email")}
+                required
               />
               <input
                 type="password"
                 placeholder={t("header.auth.signin.form.password")}
+                required
               />
               <button>{t("header.auth.signin.form.btn")}</button>
             </form>

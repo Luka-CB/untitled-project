@@ -38,7 +38,7 @@ const initialData = {
   confirmPassword: "",
   gender: "",
   companyName: "",
-  est: 0,
+  est: null,
   description: "",
   links: {
     website: "",

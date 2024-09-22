@@ -1,8 +1,11 @@
 import { ChangeEvent, useContext } from "react";
 import { RegBusinessContext } from "../../../../context/regBusinessContext";
 import styles from "./FormOne.module.scss";
+import { useTranslation } from "react-i18next";
 
 const FormOne: React.FC = () => {
+  const { t } = useTranslation();
+
   const { regBusinessData, setRegBusinessData } =
     useContext(RegBusinessContext);
 
@@ -24,7 +27,7 @@ const FormOne: React.FC = () => {
           <input
             className={styles.formOneInput}
             type="text"
-            placeholder="Enter first name *"
+            placeholder={t("header.auth.signup.form.business.firstName")}
             name="firstName"
             value={regBusinessData.firstName}
             onChange={handleInputChange}
@@ -33,7 +36,7 @@ const FormOne: React.FC = () => {
           <input
             className={styles.formOneInput}
             type="text"
-            placeholder="Enter last name *"
+            placeholder={t("header.auth.signup.form.business.lastName")}
             name="lastName"
             value={regBusinessData.lastName}
             onChange={handleInputChange}
@@ -43,18 +46,22 @@ const FormOne: React.FC = () => {
         <input
           className={styles.formOneInput}
           type="email"
-          placeholder="Enter email *"
+          placeholder={t("header.auth.signup.form.business.email")}
           name="email"
           value={regBusinessData.email}
           onChange={handleInputChange}
           required
         />
         <div className={styles.contactInput}>
-          <label htmlFor="phoneNumber">Phone Number</label>
+          <label htmlFor="phoneNumber">
+            {t("header.auth.signup.form.business.phoneNumber.label")}
+          </label>
           <input
             className={styles.formOneInput}
             type="number"
-            placeholder="Enter phone number"
+            placeholder={t(
+              "header.auth.signup.form.business.phoneNumber.placeholder"
+            )}
             name="phoneNumber"
             value={regBusinessData.phoneNumber}
             onChange={handleInputChange}
@@ -64,7 +71,7 @@ const FormOne: React.FC = () => {
           <input
             className={styles.formOneInput}
             type="password"
-            placeholder="Enter password *"
+            placeholder={t("header.auth.signup.form.business.password")}
             name="password"
             onChange={handleInputChange}
             required
@@ -72,18 +79,22 @@ const FormOne: React.FC = () => {
           <input
             className={styles.formOneInput}
             type="password"
-            placeholder="Retype password *"
+            placeholder={t("header.auth.signup.form.business.confirmPassword")}
             name="confirmPassword"
             onChange={handleInputChange}
             required
           />
-          <p>Must be at least 6 characters long</p>
+          <p>{t("header.auth.signup.form.business.warning")}</p>
         </div>
         <div className={styles.gender}>
-          <label htmlFor="gender">Choose Gender*:</label>
+          <label htmlFor="gender">
+            {t("header.auth.signup.form.business.gender.label")}
+          </label>
           <div className={styles.inputs}>
             <div className={styles.male}>
-              <label htmlFor="gender">Male</label>
+              <label htmlFor="gender">
+                {t("header.auth.signup.form.business.gender.options.0")}
+              </label>
               <input
                 type="radio"
                 name="gender"
@@ -99,7 +110,9 @@ const FormOne: React.FC = () => {
               />
             </div>
             <div className={styles.female}>
-              <label htmlFor="gender">Female</label>
+              <label htmlFor="gender">
+                {t("header.auth.signup.form.business.gender.options.1")}
+              </label>
               <input
                 type="radio"
                 name="gender"
@@ -123,7 +136,7 @@ const FormOne: React.FC = () => {
           <input
             className={styles.formOneInput}
             type="text"
-            placeholder="Company/Business name *"
+            placeholder={t("header.auth.signup.form.business.companyName")}
             name="companyName"
             value={regBusinessData.companyName}
             onChange={handleInputChange}
@@ -132,14 +145,14 @@ const FormOne: React.FC = () => {
           <input
             className={styles.formOneInput}
             type="number"
-            placeholder="Date of establishment"
+            placeholder={t("header.auth.signup.form.business.est")}
             name="est"
             value={regBusinessData.est}
             onChange={handleInputChange}
           />
         </div>
         <textarea
-          placeholder="Tell people little more about your company/business"
+          placeholder={t("header.auth.signup.form.business.description")}
           name="description"
           value={regBusinessData.description}
           onChange={handleInputChange}

@@ -84,7 +84,8 @@
     }
 
     .auth {
-      .loggedOut {
+      .loggedOut,
+      .loggedOutGeo {
         width: 70px;
         text-align: center;
 
@@ -100,7 +101,13 @@
         }
       }
 
+      .loggedOutGeo {
+        width: 120px;
+      }
+
       .loggedIn {
+        position: relative;
+
         .imageWrapper {
           position: relative;
           width: 50px;

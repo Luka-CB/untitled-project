@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
+import { LanguageContext } from "./languageContext";
 
 interface childrenIFace {
   children: ReactNode;
@@ -14,11 +15,16 @@ interface contextIFace {
 export const RegSelectContext = createContext({} as contextIFace);
 
 const RegSelectProvider = ({ children }: childrenIFace) => {
+  const { currentLanguage } = useContext(LanguageContext);
+
+  const defaultPickedOption =
+    currentLanguage === "ka" ? "მომხმარებელი" : "customer";
+
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
   const [pickedOption, setPickedOption] = useState(
     localStorage.getItem("regOption")
       ? JSON.parse(localStorage.getItem("regOption") || "")
-      : "customer"
+      : defaultPickedOption
   );
 
   const handlePickOption = (value: string) => {

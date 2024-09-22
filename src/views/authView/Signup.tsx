@@ -29,11 +29,15 @@ const Signup: React.FC = () => {
             <div className={styles.msg}>
               <IoIosWarning className={styles.warningIcon} />
               <p>
-                <b>*</b> - indicates required field!
+                <b>*</b> - {t("header.auth.hint")}
               </p>
             </div>
-            <RegSelect title="Register as" />
-            {pickedOption === "customer" ? <RegCustomer /> : <RegBusiness />}
+            <RegSelect type="register" />
+            {pickedOption === "customer" || pickedOption === "მომხმარებელი" ? (
+              <RegCustomer />
+            ) : (
+              <RegBusiness />
+            )}
             <div className={styles.note}>
               <h4>
                 {t("header.auth.signup.note.text")}{" "}
