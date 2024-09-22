@@ -44,6 +44,10 @@
               "email": "Enter your email *",
               "password": "Enter new password *",
               "confirmPassword": "Retype password *",
+              "gender": {
+                "label": "Choose Gender*:",
+                "options": ["male", "female"]
+              },
               "btn": "Sign Up"
             },
             "business": {
@@ -75,6 +79,17 @@
           "google": "Continue with Google",
           "facebook": "Contunue with Facebook"
         }
+      },
+      "flashMsg": {
+        "error": {
+          "imageSize": "Image size must be less than 1mb!",
+          "passwordLength": "Password must be at least 6 characters long!",
+          "passwordsMatch": "Passwords don't match!"
+        },
+        "success": {}
+      },
+      "dataTitle": {
+        "profileImg": "Upload Profile Image"
       }
     }
   }

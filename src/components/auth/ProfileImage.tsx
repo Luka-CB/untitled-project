@@ -2,13 +2,21 @@ import { useContext } from "react";
 import styles from "./ProfileImage.module.scss";
 import { MdAddPhotoAlternate } from "react-icons/md";
 import { ProfileImageContext } from "../../context/profileImageContext";
+import { FlashMsgContext } from "../../context/flashMsgContext";
+import { useTranslation } from "react-i18next";
 
 const ProfileImage: React.FC = () => {
+  const { t } = useTranslation();
+
   const { setImage, image } = useContext(ProfileImageContext);
+  const { setErrorMsg } = useContext(FlashMsgContext);
 
   const handleChooseFile = (file: File) => {
     const reader = new FileReader();
     reader.onloadend = () => {
+      if (file.size > 1000000) {
+        return setErrorMsg(t("header.flashMsg.error.imageSize"));
+      }
       setImage(reader.result);
     };
     reader.readAsDataURL(file);
@@ -17,7 +25,10 @@ const ProfileImage: React.FC = () => {
   return (
     <div className={styles.container}>
       <label htmlFor="uploadImage">
-        <div className={styles.imageWrapper} data-title="Upload Profile Image">
+        <div
+          className={styles.imageWrapper}
+          data-title={t("header.dataTitle.profileImg")}
+        >
           {image ? (
             <img src={image} alt="avatar" />
           ) : (

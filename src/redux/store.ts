@@ -5,12 +5,14 @@ import { TypedUseSelectorHook, useDispatch } from "react-redux";
 import themeSlice from "./slices/themeSlice";
 import fetchSessionUserSlice from "./slices/users/fetchSessionUserSlice";
 import logoutUserSlice from "./slices/users/logoutUserSlice";
+import registerCustomerSlice from "./slices/users/registerCustomerSlice";
 
 export const store = configureStore({
   reducer: {
     theme: themeSlice,
     sessionUser: fetchSessionUserSlice,
     logoutUser: logoutUserSlice,
+    registerCustomer: registerCustomerSlice,
   },
 });
 

@@ -1,4 +1,4 @@
-.loader {
+.loaderPrimary {
   transform: rotateZ(45deg);
   perspective: 1000px;
   border-radius: 50%;
@@ -22,6 +22,35 @@
 
   &:after {
     color: var(--clr-primary);
+    transform: rotateY(70deg);
+    animation-delay: 0.4s;
+  }
+}
+
+.loaderSecondary {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: var(--text-primary);
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+  }
+
+  &:after {
+    color: var(--text-secondary);
     transform: rotateY(70deg);
     animation-delay: 0.4s;
   }

@@ -9,8 +9,11 @@ import { SelectTypeContext } from "../../../context/selectTypeContext";
 import { AddressInputsContext } from "../../../context/addressInputsContext";
 import { ProfileImageContext } from "../../../context/profileImageContext";
 import { TagsContext } from "../../../context/tagsContext";
+import { useTranslation } from "react-i18next";
 
 const RegBusiness: React.FC = () => {
+  const { t } = useTranslation();
+
   const [pageCount, setPageCount] = useState(
     localStorage.getItem("regBusinessPageCount")
       ? JSON.parse(localStorage.getItem("regBusinessPageCount") || "")
@@ -28,11 +31,11 @@ const RegBusiness: React.FC = () => {
     e.preventDefault();
 
     if (regBusinessData.password?.length < 6) {
-      return setErrorMsg("Password must be at least 6 characters long!");
+      return setErrorMsg(t("header.flashMsg.error.passwordLength"));
     }
 
     if (regBusinessData.password !== regBusinessData.confirmPassword) {
-      return setErrorMsg("Passwords don't match!");
+      return setErrorMsg(t("header.flashMsg.error.passwordsMatch"));
     }
 
     if (pageCount < 3) {

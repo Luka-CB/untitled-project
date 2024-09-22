@@ -4,7 +4,7 @@ import styles from "./UserOptions.module.scss";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { logout } from "../../redux/actions/userActions";
-import BtnLoader from "../loaders/BtnLoader";
+import { BtnLoaderPrimary } from "../loaders/BtnLoader";
 
 const UserOptions: React.FC = () => {
   const { status } = useAppSelector((state) => state.logoutUser);
@@ -43,7 +43,7 @@ const UserOptions: React.FC = () => {
       </div>
       <div className={styles.logout}>
         {status === "loading" ? (
-          <BtnLoader />
+          <BtnLoaderPrimary />
         ) : (
           <span onClick={() => dispatch(logout())}>Logout</span>
         )}

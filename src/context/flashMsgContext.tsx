@@ -23,7 +23,7 @@ const FlashMsgProvider = ({ children }: childrenIFace) => {
     if (errorMsg) {
       timeout = setTimeout(() => {
         setErrorMsg("");
-      }, 2500);
+      }, 3500);
     }
 
     return () => clearTimeout(timeout);

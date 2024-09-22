@@ -1,7 +1,9 @@
 import styles from "./BtnLoader.module.scss";
 
-const BtnLoader: React.FC = () => {
-  return <div className={styles.loader}></div>;
+export const BtnLoaderPrimary: React.FC = () => {
+  return <div className={styles.loaderPrimary}></div>;
 };
 
-export default BtnLoader;
+export const BtnLoaderSecondary: React.FC = () => {
+  return <div className={styles.loaderSecondary}></div>;
+};
