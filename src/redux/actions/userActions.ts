@@ -27,6 +27,15 @@ export const registerCustomer = createAsyncThunk(
   }
 );
 
+export const test = createAsyncThunk("TEST", async (_, thunkAPI) => {
+  try {
+    const { data } = await api.get("/users/test");
+    return data;
+  } catch (error: AxiosError | any) {
+    return thunkAPI.rejectWithValue(error.response.data.msg);
+  }
+});
+
 export const logout = createAsyncThunk("LOGOUT", async (_, thunkAPI) => {
   try {
     const { data } = await api.get("/users/logout");

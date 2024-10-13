@@ -6,6 +6,7 @@ import themeSlice from "./slices/themeSlice";
 import fetchSessionUserSlice from "./slices/users/fetchSessionUserSlice";
 import logoutUserSlice from "./slices/users/logoutUserSlice";
 import registerCustomerSlice from "./slices/users/registerCustomerSlice";
+import testSlice from "./slices/users/testSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     sessionUser: fetchSessionUserSlice,
     logoutUser: logoutUserSlice,
     registerCustomer: registerCustomerSlice,
+    test: testSlice,
   },
 });
 

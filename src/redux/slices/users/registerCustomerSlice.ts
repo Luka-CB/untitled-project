@@ -32,7 +32,7 @@ const registerCustomerSlice = createSlice({
           image: payload.user.image,
         };
 
-        Cookies.set("token", payload.user.token, {
+        Cookies.set("accessToken", payload.user.accessToken, {
           secure: true,
           sameSite: "none",
         });
