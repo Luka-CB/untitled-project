@@ -44,7 +44,10 @@ const fetchSessionUserSlice = createSlice({
         };
 
         state.user = userData;
-        Cookies.set("token", payload.token, { secure: true, sameSite: "none" });
+        Cookies.set("accessToken", payload.accessToken, {
+          secure: true,
+          sameSite: "none",
+        });
         localStorage.setItem("user", JSON.stringify(userData));
       })
       .addCase(fetchSessionUser.rejected, (state) => {

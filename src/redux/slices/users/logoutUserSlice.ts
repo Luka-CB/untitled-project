@@ -23,7 +23,7 @@ const logoutUserSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         state.status = "success";
-        Cookies.remove("token");
+        Cookies.remove("accessToken");
         localStorage.removeItem("user");
       })
       .addCase(logout.rejected, (state) => {
